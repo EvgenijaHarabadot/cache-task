@@ -30,10 +30,10 @@ public class Client {
 		Objects obS = null; // reference on the object from the server
 
 		if ((obC = ch.search(id)) != null) { // object exist in cache
-			obS.date = (String) request(id, Command.date);
+			obS.setDate( (String) request(id, Command.date));
 
-			if (obC.date != obS.date) { // needs update data
-				return ch.update(id, obS.date);
+			if (obC.getDate() != obS.getDate()) { // needs update data
+				return ch.update(id, obS.getDate());
 			} else
 				return obC;
 
